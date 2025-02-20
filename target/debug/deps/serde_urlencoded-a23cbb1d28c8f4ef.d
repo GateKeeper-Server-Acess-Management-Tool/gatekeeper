@@ -1,0 +1,11 @@
+/home/Sukhi/Desktop/sdslabs/watchdog/target/debug/deps/libserde_urlencoded-a23cbb1d28c8f4ef.rmeta: /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/lib.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/de.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/mod.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/key.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/pair.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/part.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/value.rs
+
+/home/Sukhi/Desktop/sdslabs/watchdog/target/debug/deps/serde_urlencoded-a23cbb1d28c8f4ef.d: /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/lib.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/de.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/mod.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/key.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/pair.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/part.rs /home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/value.rs
+
+/home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/lib.rs:
+/home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/de.rs:
+/home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/mod.rs:
+/home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/key.rs:
+/home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/pair.rs:
+/home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/part.rs:
+/home/Sukhi/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_urlencoded-0.5.5/src/ser/value.rs:
