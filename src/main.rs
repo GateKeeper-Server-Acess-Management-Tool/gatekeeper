@@ -9,21 +9,21 @@ use std::process::Command;
 
 use clap::{App, AppSettings, Arg, SubCommand};
 
+use auth::handle_auth;
 use lib::config::{get_config_value, set_config_value};
 use lib::errors::Error;
 use lib::logger;
-use auth::handle_auth;
 use ssh::{handle_ssh, handle_ssh_logs};
 use su::{handle_su, handle_su_logs};
 use sudo::{handle_sudo, handle_sudo_logs};
 
 fn make_app<'a, 'b>() -> App<'a, 'b> {
-    App::new("Watchdog")
+    App::new("gatekeeper")
         .version("0.1.0")
         .author("SDSLabs <contact@sdslabs.co>")
         .about("Simple server access management system on a binary")
         .subcommand(SubCommand::with_name("logs")
-            .about("Get the global watchdog logs")
+            .about("Get the global gatekeeper logs")
             .arg(Arg::with_name("filter")
                 .short("f")
                 .long("filter")
@@ -31,11 +31,11 @@ fn make_app<'a, 'b>() -> App<'a, 'b> {
                 .takes_value(true)
                 .default_value("all")))
         .subcommand(SubCommand::with_name("sudo")
-            .about("Handles the PAM sudo calls by pam_exec for Watchdog"))
+            .about("Handles the PAM sudo calls by pam_exec for gatekeeper"))
         .subcommand(SubCommand::with_name("su")
-            .about("Handles the PAM su calls by pam_exec for Watchdog"))
+            .about("Handles the PAM su calls by pam_exec for gatekeeper"))
         .subcommand(SubCommand::with_name("ssh")
-            .about("Handles the PAM SSH calls by pam_exec for Watchdog"))
+            .about("Handles the PAM SSH calls by pam_exec for gatekeeper"))
         .subcommand(SubCommand::with_name("auth")
             .about("Authorizes users based on from keyhouse repository. This command is passed through `AuthorizedKeysCommand` in sshd_config.")
             .arg(Arg::with_name("pubkey")
@@ -57,7 +57,7 @@ fn make_app<'a, 'b>() -> App<'a, 'b> {
                 .takes_value(true)
                 .required(true)))
         .subcommand(SubCommand::with_name("config")
-            .about("Get or set Watchdog configuration")
+            .about("Get or set gatekeeper configuration")
             .setting(AppSettings::ArgRequiredElseHelp)
             .arg(Arg::with_name("key")
                  .index(1)
@@ -83,20 +83,20 @@ fn main() {
 
     if let Some(ref _matches) = matches.subcommand_matches("sudo") {
         if let Err(e) = handle_sudo() {
-            println!("watchdog-sudo error: {}", e);
+            println!("gatekeeper-sudo error: {}", e);
             print_traceback(e);
             std::process::exit(1);
         }
     } else if let Some(ref _matches) = matches.subcommand_matches("su") {
         if let Err(e) = handle_su() {
-            println!("watchdog-su error: {}", e);
+            println!("gatekeeper-su error: {}", e);
             print_traceback(e);
             std::process::exit(1);
         }
     } else if let Some(ref _matches) = matches.subcommand_matches("ssh") {
         logger::logln("SSH Command");
         if let Err(e) = handle_ssh() {
-            println!("watchdog-ssh error: {}", e);
+            println!("gatekeeper-ssh error: {}", e);
             print_traceback(e);
             std::process::exit(1);
         }
@@ -107,8 +107,8 @@ fn main() {
         let ssh_key = format!("{} {}", keytype, pubkey);
         logger::logln(&format!("ssh_key: {}", ssh_key));
         if let Err(e) = handle_auth(&user, &ssh_key) {
-            println!("watchdog-auth error: {}", e);
-            logger::logln(&format!("watchdog-auth error: {}", e));
+            println!("gatekeeper-auth error: {}", e);
+            logger::logln(&format!("gatekeeper-auth error: {}", e));
             print_traceback(e);
             std::process::exit(1);
         }
@@ -135,7 +135,7 @@ fn main() {
                 match set_config_value(key, v) {
                     Ok(()) => {}
                     Err(e) => {
-                        println!("watchdog-config error: {}", e);
+                        println!("gatekeeper-config error: {}", e);
                         std::process::exit(1);
                     }
                 };
@@ -145,7 +145,7 @@ fn main() {
                 match v {
                     Ok(s) => println!("{}", s),
                     Err(e) => {
-                        println!("watchdog-config error: {}", e);
+                        println!("gatekeeper-config error: {}", e);
                         std::process::exit(1);
                     }
                 }
@@ -160,7 +160,7 @@ fn main() {
 fn handle_all_logs() {
     /* TODO: Unimplemented function */
     Command::new("less")
-        .arg("/opt/watchdog/logs/sudo.logs")
+        .arg("/opt/gatekeeper/logs/sudo.logs")
         .status()
         .expect("Something went wrong. Is `less` command present in your environment?");
 }

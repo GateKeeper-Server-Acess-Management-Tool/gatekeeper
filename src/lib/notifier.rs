@@ -14,7 +14,7 @@ use crate::errors::*;
 /// This trait can be implemented for various webhook based applications
 /// like Slack, Discord etc.
 pub trait Notifier {
-    /// Returns corresponding `Notifier` from watchdog config
+    /// Returns corresponding `Notifier` from gatekeeper config
     fn new(conf: &Config) -> Option<Self>
     where
         Self: Sized;

@@ -24,15 +24,15 @@ pub struct Config {
 }
 
 pub fn read_config() -> Result<Config> {
-    let toml_str = fs::read_to_string("/opt/watchdog/config.toml")?;
+    let toml_str = fs::read_to_string("/opt/gatekeeper/config.toml")?;
     let config: Config = toml::from_str(&toml_str)?;
     Ok(config)
 }
 
 pub fn set_config_value(key: &str, val: &str) -> Result<()> {
-    let toml_str = fs::read_to_string("/opt/watchdog/config.toml")?;
+    let toml_str = fs::read_to_string("/opt/gatekeeper/config.toml")?;
     let mut doc = toml_str.parse::<Document>().chain_err(|| {
-        "Invalid TOML file. Please reverify if /opt/watchdog/config.toml is a valid toml file."
+        "Invalid TOML file. Please reverify if /opt/gatekeeper/config.toml is a valid toml file."
     })?;
     match key {
         "hostname" => {
@@ -51,14 +51,14 @@ pub fn set_config_value(key: &str, val: &str) -> Result<()> {
             return Err("Invalid Key passed".into());
         }
     }
-    fs::write("/opt/watchdog/config.toml", doc.to_string())?;
+    fs::write("/opt/gatekeeper/config.toml", doc.to_string())?;
     Ok(())
 }
 
 pub fn get_config_value(key: &str) -> Result<String> {
-    let toml_str = fs::read_to_string("/opt/watchdog/config.toml")?;
+    let toml_str = fs::read_to_string("/opt/gatekeeper/config.toml")?;
     let doc = toml_str.parse::<Document>().chain_err(|| {
-        "Invalid TOML file. Please reverify if /opt/watchdog/config.toml is a valid toml file."
+        "Invalid TOML file. Please reverify if /opt/gatekeeper/config.toml is a valid toml file."
     })?;
     let val = match key {
         "hostname" => doc["hostname"].as_str(),

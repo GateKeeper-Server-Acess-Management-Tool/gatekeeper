@@ -470,6 +470,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "gatekeeper"
+version = "0.1.0"
+dependencies = [
+ "base64",
+ "chrono",
+ "clap",
+ "error-chain",
+ "nix",
+ "openssl",
+ "openssl-sys",
+ "reqwest",
+ "rust-crypto",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "toml",
+ "toml_edit",
+]
+
+[[package]]
 name = "gcc"
 version = "0.3.55"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1980,26 +2000,6 @@ name = "wasm-bindgen-shared"
 version = "0.2.99"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "943aab3fdaaa029a6e0271b35ea10b72b943135afe9bffca82384098ad0e06a6"
-
-[[package]]
-name = "watchdog"
-version = "0.1.0"
-dependencies = [
- "base64",
- "chrono",
- "clap",
- "error-chain",
- "nix",
- "openssl",
- "openssl-sys",
- "reqwest",
- "rust-crypto",
- "serde",
- "serde_derive",
- "serde_json",
- "toml",
- "toml_edit",
-]
 
 [[package]]
 name = "winapi"

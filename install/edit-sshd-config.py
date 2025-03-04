@@ -1,12 +1,12 @@
-watchdog_config = """
-# SDSLabs Watchdog configuration START
+gatekeeper_config = """
+# SDSLabs gatekeeper configuration START
 
 UsePAM yes
 PasswordAuthentication no
-AuthorizedKeysCommand /opt/watchdog/bin/watchdog auth -u %u -t %t -p %k
+AuthorizedKeysCommand /opt/gatekeeper/bin/gatekeeper auth -u %u -t %t -p %k
 AuthorizedKeysCommandUser root
 
-# SDSLabs Watchdog configuration END
+# SDSLabs gatekeeper configuration END
 """
 
 
@@ -17,20 +17,20 @@ modified_options = [
 	'UsePAM'
 ]
 
-inside_watchdog_config = False
+inside_gatekeeper_config = False
 
 def process_line(line):
-	global inside_watchdog_config
+	global inside_gatekeeper_config
 
-	if inside_watchdog_config and line == "# SDSLabs Watchdog configuration END\n":
-		inside_watchdog_config = False
+	if inside_gatekeeper_config and line == "# SDSLabs gatekeeper configuration END\n":
+		inside_gatekeeper_config = False
 		return ''
 
-	if inside_watchdog_config:
+	if inside_gatekeeper_config:
 		return ''
 
-	if line == "# SDSLabs Watchdog configuration START\n":
-		inside_watchdog_config = True
+	if line == "# SDSLabs gatekeeper configuration START\n":
+		inside_gatekeeper_config = True
 		return ''
 
 	l = line.strip()
@@ -53,19 +53,19 @@ def process_line(line):
 	value = l[i+1:].strip()
 	if key in modified_options:
 		# comment this line
-		return '# Watchdog: Commenting the line below out\n#' + line
+		return '# gatekeeper: Commenting the line below out\n#' + line
 	else:
 		return line
 
 def main():
 	inp = open("/etc/ssh/sshd_config")
-	out = open("watchdog_tmp_sshd_config", "w")
+	out = open("gatekeeper_tmp_sshd_config", "w")
 	lines = inp.readlines()
 	for l in lines:
 		output_line = process_line(l)
 		out.write(output_line)
 
-	out.write(watchdog_config)
+	out.write(gatekeeper_config)
 
 	inp.close()
 	out.close()

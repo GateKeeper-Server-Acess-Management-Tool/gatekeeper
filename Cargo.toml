@@ -1,5 +1,5 @@
 [package]
-name = "watchdog"
+name = "gatekeeper"
 version = "0.1.0"
 authors = ["Kanav Gupta <kanav0610@gmail.com>"]
 edition = "2018"
@@ -21,7 +21,7 @@ openssl-sys = "0.9.58"
 chrono = "0.4"
 
 [[ bin ]]
-name = "watchdog"
+name = "gatekeeper"
 path = "src/main.rs"
 
 [lib]

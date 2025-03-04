@@ -6,8 +6,8 @@ use lib::config::read_config;
 use lib::errors::*;
 use lib::init::init;
 use lib::keyhouse::{get_name, validate_user};
-use lib::notifier;
 use lib::logger;
+use lib::notifier;
 use lib::utils::AUTH_LOG_PATH;
 
 pub fn handle_auth(ssh_host_username: &str, ssh_key: &str) -> Result<()> {
@@ -22,8 +22,8 @@ pub fn handle_auth(ssh_host_username: &str, ssh_key: &str) -> Result<()> {
                 ssh_host_username, ssh_key
             );
 
-            fs::write("/opt/watchdog/ssh_env", data)
-                        .chain_err(|| "Cannot write temporary environment file. Please check if the watchdog `auth_keys_cmd` is run by the root user")?;
+            fs::write("/opt/gatekeeper/ssh_env", data)
+                        .chain_err(|| "Cannot write temporary environment file. Please check if the gatekeeper `auth_keys_cmd` is run by the root user")?;
             logger::logln("Temporary environment file written");
             println!("{}", ssh_key);
             let name = get_name(&config, ssh_key)?;
@@ -50,7 +50,7 @@ pub fn handle_auth(ssh_host_username: &str, ssh_key: &str) -> Result<()> {
                         name,
                         ssh_host_username.to_string(),
                     )?;
-                    std::process::exit(0); 
+                    std::process::exit(0);
                 }
                 Err(_) => println!("Fork failed"),
             }
