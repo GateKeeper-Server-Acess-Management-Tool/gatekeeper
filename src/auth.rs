@@ -5,7 +5,7 @@ use nix::unistd::{fork, ForkResult};
 use lib::config::read_config;
 use lib::errors::*;
 use lib::init::init;
-use lib::keyhouse::{get_name, validate_user};
+use lib::keykeeper::{get_name, validate_user};
 use lib::logger;
 use lib::notifier;
 use lib::utils::AUTH_LOG_PATH;
@@ -57,8 +57,8 @@ pub fn handle_auth(ssh_host_username: &str, ssh_key: &str) -> Result<()> {
             Ok(())
         }
         Err(e) => {
-            logger::logln("Error while validating user from keyhouse");
-            Err(e).chain_err(|| "Error while validating user from keyhouse")
+            logger::logln("Error while validating user from keykeeper");
+            Err(e).chain_err(|| "Error while validating user from keykeeper")
         }
     }
 }

@@ -1,17 +1,17 @@
 # Hostname of the machine running gatekeeper. Note that this should be
-# same as the file you create in the `hosts` directory in keyhouse.
+# same as the file you create in the `hosts` directory in keykeeper.
 hostname = 'virtual-machine'
 
-# Keyhouse repository configuration
-[keyhouse]
+# keykeeper repository configuration
+[keykeeper]
 
-# URL of the Keyhouse repository, it should be of the format
-# `https://api.github.com/repos/<ORGANIZATION>/<KEYHOUSE-REPOSITORY>/contents`
-base_url = 'https://api.github.com/repos/sdslabs/keyhouse-template/contents'
+# URL of the keykeeper repository, it should be of the format
+# `https://api.github.com/repos/<ORGANIZATION>/<keykeeper-REPOSITORY>/contents`
+base_url = 'https://api.github.com/repos/sdslabs/keykeeper-template/contents'
 
 # This should be a personal access token made by a member of organization on his/her
-# behalf who can read the Keyhouse repository. Go to this
-# https://github.com/settings/tokens/new?description=Keyhouse%20Token&scopes=repo
+# behalf who can read the keykeeper repository. Go to this
+# https://github.com/settings/tokens/new?description=keykeeper%20Token&scopes=repo
 # to make a new token with correct scopes.
 token = 'secret_token'
 

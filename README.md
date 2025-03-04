@@ -2,11 +2,9 @@
 
 > Lightweight server access management system
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/sdslabs/gatekeeper/blob/master/LICENSE.md)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/gatekeeper/blob/master/LICENSE.md)
 
-gatekeeper is a personalised server access management tool (and a slack bot) which keeps a track of all the administrative rights attempts (like sudo and su) on server (via SSH) and allows/disallows log-in attempts based on public key of user and logs all activity in form of slack message. It provides easy granting/revoking access to servers to team members through pull requests on a keyhouse repository.
-
-Check out this blog post to know how gatekeeper works and design methodologies behind it: https://blog.sdslabs.co/2020/04/gatekeeper
+Gatekeeper is a personalised server access management tool (and a slack bot) which keeps a track of all the administrative rights attempts (like sudo and su) on server (via SSH) and allows/disallows log-in attempts based on public key of user and logs all activity in form of slack message. It provides easy granting/revoking access to servers to team members through pull requests on a keykeeper repository.
 
 ## Contents
 
@@ -19,7 +17,7 @@ Check out this blog post to know how gatekeeper works and design methodologies b
 
 ## Features
 
-- Request SSH access to a server just by creating a PR to the Keyhouse repository.
+- Request SSH access to a server just by creating a PR to the keykeeper repository.
 - Stateless and serverless. gatekeeper runs on a single binary.
 - Optional server activity logs to your favourite workspace like Slack or Discord.
 - Easy Installation and Configuration
@@ -34,11 +32,11 @@ The following softwares are required for running gatekeeper:-
 
 ## Installation
 
-1. Create a Keyhouse Repository using the template repository [here](https://github.com/sdslabs/keyhouse-template).
+1. Create a keykeeper Repository using the template repository [here](https://github.com/gatekeeper/keykeeper-template).
 
 2. Clone the gatekeeper repository
 
-   `git clone https://github.com/sdslabs/gatekeeper.git`
+   `git clone https://github.com/gatekeeper/gatekeeper.git`
 
 3. Change into the repository directory and build the latest binaries using Cargo
 
@@ -48,19 +46,19 @@ The following softwares are required for running gatekeeper:-
 
    ```toml
    # Hostname of the machine running gatekeeper. Note that this should be
-   # same as the file you create in the `hosts` directory in keyhouse.
+   # same as the file you create in the `hosts` directory in keykeeper.
    hostname = 'virtual-machine'
 
-   # Keyhouse repository configuration
-   [keyhouse]
+   # keykeeper repository configuration
+   [keykeeper]
 
-   # URL of the Keyhouse repository, it should be of the format
-   # `https://api.github.com/repos/<ORGANIZATION>/<KEYHOUSE-REPOSITORY>/contents`
-   base_url = 'https://api.github.com/repos/sdslabs/keyhouse-template/contents'
+   # URL of the keykeeper repository, it should be of the format
+   # `https://api.github.com/repos/<ORGANIZATION>/<keykeeper-REPOSITORY>/contents`
+   base_url = 'https://api.github.com/repos/keykeeper-template/contents'
 
    # This should be a personal access token made by a member of organization on his/her
-   # behalf who can read the Keyhouse repository. Go to this
-   # https://github.com/settings/tokens/new?description=Keyhouse%20Token&scopes=repo
+   # behalf who can read the keykeeper repository. Go to this
+   # https://github.com/settings/tokens/new?description=keykeeper%20Token&scopes=repo
    # to make a new token with correct scopes.
    token = 'secret_token'
 
@@ -85,7 +83,6 @@ The following softwares are required for running gatekeeper:-
 $ gatekeeper --help
 
 gatekeeper 0.1.0
-SDSLabs <contact@sdslabs.co>
 Simple server access management system on a binary
 
 USAGE:
@@ -96,7 +93,7 @@ FLAGS:
     -V, --version    Prints version information
 
 SUBCOMMANDS:
-    auth      Authorizes users based on from keyhouse repository. This command is passed through
+    auth      Authorizes users based on from keykeeper repository. This command is passed through
               `AuthorizedKeysCommand` in sshd_config.
     config    Get or set gatekeeper configuration
     help      Prints this message or the help of the given subcommand(s)
@@ -129,7 +126,7 @@ Open your favourite terminal and perform the following tasks:-
 1. Clone this repository.
 
 ```bash
-$ git clone https://github.com/sdslabs/gatekeeper
+$ git clone https://github.com/GateKeeper-Server-Acess-Management-Tool/gatekeeper
 ```
 
 2. Make the required changes inside the source code directory ([src/](src/))
@@ -137,8 +134,3 @@ $ git clone https://github.com/sdslabs/gatekeeper
 3. Run `cargo test` to test your changes.
 
 4. Rebuild the binary using `cargo build` command.
-
-## Contact
-
-If you have a query regarding the product or just want to say hello then feel free to visit
-[chat.sdslabs.co](http://chat.sdslabs.co/) or drop a mail at [contact@sdslabs.co.in](mailto:contact@sdslabs.co.in)

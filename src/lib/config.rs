@@ -6,7 +6,7 @@ use toml_edit::{value, Document};
 use crate::errors::*;
 
 #[derive(Deserialize, Clone)]
-pub struct KeyhouseConf {
+pub struct keykeeperConf {
     pub base_url: String,
     pub token: String,
 }
@@ -19,7 +19,7 @@ pub struct NotifiersConf {
 #[derive(Deserialize, Clone)]
 pub struct Config {
     pub hostname: String,
-    pub keyhouse: KeyhouseConf,
+    pub keykeeper: keykeeperConf,
     pub notifiers: NotifiersConf,
 }
 
@@ -38,11 +38,11 @@ pub fn set_config_value(key: &str, val: &str) -> Result<()> {
         "hostname" => {
             doc["hostname"] = value(val);
         }
-        "keyhouse.base_url" => {
-            doc["keyhouse"]["base_url"] = value(val);
+        "keykeeper.base_url" => {
+            doc["keykeeper"]["base_url"] = value(val);
         }
-        "keyhouse.token" => {
-            doc["keyhouse"]["token"] = value(val);
+        "keykeeper.token" => {
+            doc["keykeeper"]["token"] = value(val);
         }
         "notifiers.slack" => {
             doc["notifiers"]["slack"] = value(val);
@@ -62,8 +62,8 @@ pub fn get_config_value(key: &str) -> Result<String> {
     })?;
     let val = match key {
         "hostname" => doc["hostname"].as_str(),
-        "keyhouse.base_url" => doc["keyhouse"]["base_url"].as_str(),
-        "keyhouse.token" => doc["keyhouse"]["token"].as_str(),
+        "keykeeper.base_url" => doc["keykeeper"]["base_url"].as_str(),
+        "keykeeper.token" => doc["keykeeper"]["token"].as_str(),
         "notifiers.slack" => doc["notifiers"]["slack"].as_str(),
         _ => {
             return Err("Invalid Key passed".into());
