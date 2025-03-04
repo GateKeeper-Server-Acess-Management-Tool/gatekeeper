@@ -37,7 +37,7 @@ fn make_app<'a, 'b>() -> App<'a, 'b> {
         .subcommand(SubCommand::with_name("ssh")
             .about("Handles the PAM SSH calls by pam_exec for gatekeeper"))
         .subcommand(SubCommand::with_name("auth")
-            .about("Authorizes users based on from keyhouse repository. This command is passed through `AuthorizedKeysCommand` in sshd_config.")
+            .about("Authorizes users based on from keykeeper repository. This command is passed through `AuthorizedKeysCommand` in sshd_config.")
             .arg(Arg::with_name("pubkey")
                 .short("p")
                 .long("pubkey")

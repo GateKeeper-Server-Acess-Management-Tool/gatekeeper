@@ -1,1 +1,0 @@
-cargo:rustc-env=MIME_TYPES_GENERATED_PATH=/home/Sukhi/Desktop/sdslabs/gatekeeper/target/debug/build/mime_guess-dbf182d78d64911d/out/mime_types_generated.rs
