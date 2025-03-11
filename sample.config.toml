@@ -7,7 +7,7 @@ hostname = 'virtual-machine'
 
 # URL of the keykeeper repository, it should be of the format
 # `https://api.github.com/repos/<ORGANIZATION>/<keykeeper-REPOSITORY>/contents`
-base_url = 'https://api.github.com/repos/sdslabs/keykeeper-template/contents'
+base_url = 'https://api.github.com/keykeeper-template/contents'
 
 # This should be a personal access token made by a member of organization on his/her
 # behalf who can read the keykeeper repository. Go to this

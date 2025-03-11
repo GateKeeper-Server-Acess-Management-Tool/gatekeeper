@@ -20,7 +20,6 @@ use sudo::{handle_sudo, handle_sudo_logs};
 fn make_app<'a, 'b>() -> App<'a, 'b> {
     App::new("gatekeeper")
         .version("0.1.0")
-        .author("SDSLabs <contact@sdslabs.co>")
         .about("Simple server access management system on a binary")
         .subcommand(SubCommand::with_name("logs")
             .about("Get the global gatekeeper logs")

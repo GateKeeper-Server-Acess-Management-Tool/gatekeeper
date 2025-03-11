@@ -1,12 +1,12 @@
 gatekeeper_config = """
-# SDSLabs gatekeeper configuration START
+# gatekeeper configuration START
 
 UsePAM yes
 PasswordAuthentication no
 AuthorizedKeysCommand /opt/gatekeeper/bin/gatekeeper auth -u %u -t %t -p %k
 AuthorizedKeysCommandUser root
 
-# SDSLabs gatekeeper configuration END
+# gatekeeper configuration END
 """
 
 
@@ -22,14 +22,14 @@ inside_gatekeeper_config = False
 def process_line(line):
 	global inside_gatekeeper_config
 
-	if inside_gatekeeper_config and line == "# SDSLabs gatekeeper configuration END\n":
+	if inside_gatekeeper_config and line == "# gatekeeper configuration END\n":
 		inside_gatekeeper_config = False
 		return ''
 
 	if inside_gatekeeper_config:
 		return ''
 
-	if line == "# SDSLabs gatekeeper configuration START\n":
+	if line == "# gatekeeper configuration START\n":
 		inside_gatekeeper_config = True
 		return ''
 
