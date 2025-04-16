@@ -1,12 +1,12 @@
 gatekeeper_config = """
-# gatekeeper configuration START
+#  Gatekeeper configuration START
 
 UsePAM yes
 PasswordAuthentication no
 AuthorizedKeysCommand /opt/gatekeeper/bin/gatekeeper auth -u %u -t %t -p %k
 AuthorizedKeysCommandUser root
 
-# gatekeeper configuration END
+#  Gatekeeper configuration END
 """
 
 
@@ -22,14 +22,14 @@ inside_gatekeeper_config = False
 def process_line(line):
 	global inside_gatekeeper_config
 
-	if inside_gatekeeper_config and line == "# gatekeeper configuration END\n":
+	if inside_gatekeeper_config and line == "#  Gatekeeper configuration END\n":
 		inside_gatekeeper_config = False
 		return ''
 
 	if inside_gatekeeper_config:
 		return ''
 
-	if line == "# gatekeeper configuration START\n":
+	if line == "#  Gatekeeper configuration START\n":
 		inside_gatekeeper_config = True
 		return ''
 
@@ -53,7 +53,7 @@ def process_line(line):
 	value = l[i+1:].strip()
 	if key in modified_options:
 		# comment this line
-		return '# gatekeeper: Commenting the line below out\n#' + line
+		return '#Gatekeeper: Commenting the line below out\n#' + line
 	else:
 		return line
 

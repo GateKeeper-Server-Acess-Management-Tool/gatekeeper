@@ -1,9 +1,9 @@
 gatekeeper_config = """
-# gatekeeper configuration START
+#  Gatekeeper configuration START
 
 session optional pam_exec.so seteuid log=/opt/gatekeeper/logs/sudo.logs /opt/gatekeeper/bin/gatekeeper sudo
 
-# gatekeeper configuration END
+#  Gatekeeper configuration END
 """
 
 inside_gatekeeper_config_section = False
@@ -11,14 +11,14 @@ inside_gatekeeper_config_section = False
 def process_line(line):
 	global inside_gatekeeper_config_section
 
-	if inside_gatekeeper_config_section and line == "# gatekeeper configuration END\n":
+	if inside_gatekeeper_config_section and line == "#  Gatekeeper configuration END\n":
 		inside_gatekeeper_config_section = False
 		return ''
 
 	if inside_gatekeeper_config_section:
 		return ''
 
-	if line == "# gatekeeper configuration START\n":
+	if line == "#  Gatekeeper configuration START\n":
 		inside_gatekeeper_config_section = True
 		return ''
 

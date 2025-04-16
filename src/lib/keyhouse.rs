@@ -23,11 +23,11 @@ pub fn validate_user(config: &Config, user: String, ssh_key: &str) -> Result<boo
     let res = client
         .get(&format!(
             "{}/access/{}/{}/{}?ref=build",
-            config.keykeeper.base_url, config.hostname, user, hex
+            config.keyhouse.base_url, config.hostname, user, hex
         ))
         .header(
             "Authorization",
-            &format!("Bearer {}", config.keykeeper.token),
+            &format!("Bearer {}", config.keyhouse.token),
         )
         .send();
 
@@ -70,11 +70,11 @@ pub fn get_name(config: &Config, ssh_key: &str) -> Result<String> {
     let res = client
         .get(&format!(
             "{}/names/{}?ref=build",
-            config.keykeeper.base_url, hex
+            config.keyhouse.base_url, hex
         ))
         .header(
             "Authorization",
-            &format!("Bearer {}", config.keykeeper.token),
+            &format!("Bearer {}", config.keyhouse.token),
         )
         .send();
 

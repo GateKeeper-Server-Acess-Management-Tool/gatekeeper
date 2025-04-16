@@ -7,7 +7,7 @@ use lib::config::read_config;
 use lib::environment::read_temp_env;
 use lib::errors::*;
 use lib::init::init;
-use lib::keykeeper::get_name;
+use lib::keyhouse::get_name;
 use lib::notifier;
 //use lib::utils::clear_file;
 use lib::logger;

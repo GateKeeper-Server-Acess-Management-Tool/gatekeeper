@@ -1,4 +1,4 @@
-# gatekeeper
+#gatekeeper
 
 > Lightweight server access management system
 
@@ -18,14 +18,14 @@ Gatekeeper is a personalised server access management tool (and a slack bot) whi
 ## Features
 
 - Request SSH access to a server just by creating a PR to the keykeeper repository.
-- Stateless and serverless. gatekeeper runs on a single binary.
+- Stateless and serverless.gatekeeper runs on a single binary.
 - Optional server activity logs to your favourite workspace like Slack or Discord.
 - Easy Installation and Configuration
 - Get notified when someone escalates privileges or performs administrative tasks using `sudo` or `su`
 
 ## Dependencies
 
-The following softwares are required for running gatekeeper:-
+The following softwares are required for runninggatekeeper:-
 
 - PAM
 - OpenSSH server
@@ -34,7 +34,7 @@ The following softwares are required for running gatekeeper:-
 
 1. Create a keykeeper Repository using the template repository [here](https://github.com/gatekeeper/keykeeper-template).
 
-2. Clone the gatekeeper repository
+2. Clone thegatekeeper repository
 
    `git clone https://github.com/gatekeeper/gatekeeper.git`
 
@@ -45,7 +45,7 @@ The following softwares are required for running gatekeeper:-
 4. Copy `sample.config.toml` to `config.toml` and make changes to the config this way:
 
    ```toml
-   # Hostname of the machine running gatekeeper. Note that this should be
+   # Hostname of the machine runninggatekeeper. Note that this should be
    # same as the file you create in the `hosts` directory in keykeeper.
    hostname = 'virtual-machine'
 
@@ -80,13 +80,13 @@ The following softwares are required for running gatekeeper:-
 ## Usage
 
 ```
-$ gatekeeper --help
+$gatekeeper --help
 
 gatekeeper 0.1.0
 Simple server access management system on a binary
 
 USAGE:
-    gatekeeper [SUBCOMMAND]
+  Gatekeeper [SUBCOMMAND]
 
 FLAGS:
     -h, --help       Prints help information
@@ -95,18 +95,18 @@ FLAGS:
 SUBCOMMANDS:
     auth      Authorizes users based on from keykeeper repository. This command is passed through
               `AuthorizedKeysCommand` in sshd_config.
-    config    Get or set gatekeeper configuration
+    config    Get or setgatekeeper configuration
     help      Prints this message or the help of the given subcommand(s)
-    logs      Get the global gatekeeper logs
-    ssh       Handles the PAM SSH calls by pam_exec for gatekeeper
-    su        Handles the PAM su calls by pam_exec for gatekeeper
-    sudo      Handles the PAM sudo calls by pam_exec for gatekeeper
+    logs      Get the globalgatekeeper logs
+    ssh       Handles the PAM SSH calls by pam_exec forgatekeeper
+    su        Handles the PAM su calls by pam_exec forgatekeeper
+    sudo      Handles the PAM sudo calls by pam_exec forgatekeeper
 ```
 
-Though most of the commands are for internal use of PAM, you can edit configuration of gatekeeper any time
+Though most of the commands are for internal use of PAM, you can edit configuration ofgatekeeper any time
 
 ```sh
-$ gatekeeper config --help
+$gatekeeper config --help
 ```
 
 _NOTE:_ config can be fetched/edited only with `root` (`sudo`) access.
@@ -114,7 +114,7 @@ _NOTE:_ config can be fetched/edited only with `root` (`sudo`) access.
 To view logs
 
 ```sh
-$ gatekeeper logs --help
+$gatekeeper logs --help
 ```
 
 ## Development

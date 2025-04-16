@@ -1,4 +1,4 @@
-# Hostname of the machine running gatekeeper. Note that this should be
+# Hostname of the machine runninggatekeeper. Note that this should be
 # same as the file you create in the `hosts` directory in keykeeper.
 hostname = 'virtual-machine'
 
